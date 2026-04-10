@@ -37,14 +37,21 @@ export default function DonationForm() {
       <div className="form-panel">
         {submitted ? (
           <div className="thank-you">
-            <div className="ty-icon">✦</div>
-            <h3>Donazione ricevuta</h3>
+            <div className="ty-icon">🚜</div>
+            <h3>Transazione simulata completata</h3>
             <p className="ty-amount">€{finalAmount?.toFixed(2)}</p>
+            <p className="ty-tagline">— virtuale, ma sentito —</p>
             <p className="ty-message">
-              Il tuo contributo alimenta il motore del team. Grazie, {name || 'amico'}.
+              {name || 'Amico'}, grazie di cuore per il pensiero.
+              Purtroppo questi €{finalAmount?.toFixed(2)} esistono solo nel metaverso,
+              quindi il trattore è ancora fermo in mezzo al campo.
+            </p>
+            <p className="ty-subtext">
+              Se fossero stati soldi veri, oggi il motore sarebbe acceso —
+              anche se le ruote girerebbero comunque nel verso sbagliato. 🌾
             </p>
             <button className="btn-reset" onClick={() => { setSubmitted(false); setCustom(''); setName(''); setEmail(''); }}>
-              Fai un&apos;altra donazione
+              Dona di nuovo (sempre gratis)
             </button>
           </div>
         ) : (
@@ -407,11 +414,27 @@ export default function DonationForm() {
           font-weight: 600;
         }
 
+        .ty-tagline {
+          font-family: var(--font-mono, monospace);
+          font-size: 0.62rem;
+          letter-spacing: 0.2em;
+          color: rgba(0, 255, 136, 0.45);
+          margin-top: -4px;
+        }
+
         .ty-message {
           font-size: 0.82rem;
           color: rgba(200, 240, 220, 0.5);
           max-width: 300px;
           line-height: 1.7;
+        }
+
+        .ty-subtext {
+          font-size: 0.78rem;
+          color: rgba(200, 240, 220, 0.32);
+          max-width: 300px;
+          line-height: 1.7;
+          font-style: italic;
         }
 
         .btn-reset {
